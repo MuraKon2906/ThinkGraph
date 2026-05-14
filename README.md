@@ -3,13 +3,12 @@
 > AI-powered research engine that transforms academic papers and technical reports into structured, interactive knowledge systems.
 
 <p align="left">
-  <img src="https://img.shields.io/badge/status-beta-orange" />
-  <img src="https://img.shields.io/badge/backend-django-green" />
-  <img src="https://img.shields.io/badge/frontend-react-blue" />
-  <img src="https://img.shields.io/badge/ai-langchain-black" />
-  <img src="https://img.shields.io/badge/docker-ready-2496ED" />
+  <img src="https://img.shields.io/badge/Status-Beta-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Backend-Django-092E20?style=for-the-badge&logo=django" />
+  <img src="https://img.shields.io/badge/Frontend-React-20232A?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/AI-LangChain-121212?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Container-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 </p>
-
 ---
 
 # Overview
