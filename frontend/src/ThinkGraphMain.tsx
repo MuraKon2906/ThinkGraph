@@ -102,7 +102,7 @@ function ThinkGraphMain() {
           </button>
         </div>)
       }
-      {uploadFlag && <ResponseHandlerComponent />}
+      {uploadFlag && <ResponseHandlerComponent prompt={prompt} material={selectedFile} />}
     </>
   );
 }
