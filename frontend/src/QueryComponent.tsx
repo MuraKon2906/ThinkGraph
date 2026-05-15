@@ -1,15 +1,22 @@
 import axios from "axios";
+import { Form } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
 
 function QueryComponent() {
   const [prompt, setPrompt] = useState("");
 
+
+
   const handlePromptBox = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setPrompt(event.currentTarget.value);
+    event.currentTarget.style.height = "auto"
+    event.currentTarget.style.height = `${event.currentTarget.scrollHeight / 2}px`
   };
+
+
 
   const postPrompt = async () => {
     const backend_data = {
@@ -49,18 +56,25 @@ function QueryComponent() {
       <h1>Think Graph : Your AI Research Search Engine</h1>
       <h2>v:0.0.1</h2>
 
-      <textarea
-        placeholder="Knowledge starts here"
-        onChange={handlePromptBox}
-        onKeyDown={handleEnter}
-        value={prompt}
-      />
+      {/* Prompt and file uploading div */}
+      <div className="flex items-center gap-3">
+        <input type="file" />
 
-      <button onClick={postPrompt}>
-        Enter
-      </button>
+        <textarea
+          className="flex-1 resize-none h-10 border rounded-md p-2"
+          placeholder="Knowledge starts here"
+          onChange={handlePromptBox}
+          onKeyDown={handleEnter}
+          value={prompt}
+        />
 
-      <p>You typed: {prompt}</p>
+        <button
+          className="px-4 py-2 bg-black text-white rounded-md"
+          onClick={postPrompt}
+        >
+          Enter
+        </button>
+      </div>
     </>
   );
 }
