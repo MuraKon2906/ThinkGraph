@@ -1,46 +1,66 @@
+import axios from "axios";
 import type React from "react";
 import { useState } from "react";
 
 function QueryComponent() {
-  // Prompt which displays in the input box
   const [prompt, setPrompt] = useState("");
-  // Prompt sent to the backend
-  const [finalPrompt, setFinalPrompt] = useState("")
-
 
   const handlePromptBox = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setPrompt(event.currentTarget.value);
   };
 
-  const handleFinalPrompts = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key == "Enter") {
-      setFinalPrompt(prompt)
+  const postPrompt = async () => {
+    const backend_data = {
+      prompt: prompt,
+      date: Date.now(),
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/query/",
+        backend_data
+      );
+
+      console.log(
+        "================ POSTING TO DJANGO ================="
+      );
+
+      console.log(response.data);
+
+    } catch (err) {
+      console.log(err);
     }
-  }
-  const backend_data = {
-    "prompt": finalPrompt,
-    "data": Date.now()
-  }
+  };
+
+  const handleEnter = async (
+    event: React.KeyboardEvent<HTMLTextAreaElement>
+  ) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+
+      await postPrompt();
+    }
+  };
 
   return (
     <>
       <h1>Think Graph : Your AI Research Search Engine</h1>
       <h2>v:0.0.1</h2>
 
-      <input
-        type="text"
+      <textarea
         placeholder="Knowledge starts here"
         onChange={handlePromptBox}
-        onKeyDown={handleFinalPrompts}
-
+        onKeyDown={handleEnter}
         value={prompt}
       />
 
-      <p>
-        You typed: {finalPrompt}
-      </p>
+      <button onClick={postPrompt}>
+        Enter
+      </button>
+
+      <p>You typed: {prompt}</p>
     </>
   );
 }

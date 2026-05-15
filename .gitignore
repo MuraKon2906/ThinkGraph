@@ -1,1 +1,10 @@
-frontend/node_modules
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Frontend dependencies
+frontend/node_modules/
+
+# Optional virtual envs
+.venv/
+venv/

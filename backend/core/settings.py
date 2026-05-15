@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework' , 
     "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -120,3 +121,9 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+CORS_ALLOW_ALL_ORIGINS = True
+# settings.py
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+]
