@@ -23,9 +23,9 @@ $$
 `;
 
   return (
-    <div className="flex flex-col items-end p-4 gap-4">
+    <div className="flex flex-col items-end p-4 gap-4 w-full">
       {/* User Message */}
-      <div className="border rounded-md p-3 max-w-md bg-gray-100">
+      <div className="border rounded-md p-3 max-w-md bg-gray-100 self-end">
         <h1 className="font-semibold">
           Prompt ::: {props.prompt}
         </h1>
@@ -38,7 +38,7 @@ $$
       </div>
 
       {/* Markdown Response */}
-      <div className="prose max-w-2xl border rounded-md p-4">
+      <div className="self-start prose max-w-2xl border rounded-md p-4 bg-white">
         <ReactMarkdown
           remarkPlugins={[remarkMath]}
           rehypePlugins={[rehypeKatex]}
