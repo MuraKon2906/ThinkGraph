@@ -5,6 +5,9 @@ import { useState } from "react";
 
 function QueryComponent() {
   const [prompt, setPrompt] = useState("");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+
+
 
 
 
@@ -25,9 +28,14 @@ function QueryComponent() {
     };
 
     try {
+      const formdata = new FormData()
+      formdata.append("prompt", prompt)
+      if (selectedFile) {
+        formdata.append("material", selectedFile)
+      }
       const response = await axios.post(
         "http://localhost:8000/api/query/",
-        backend_data
+        formdata
       );
 
       console.log(
@@ -51,6 +59,25 @@ function QueryComponent() {
     }
   };
 
+  const handleFileUpload = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+
+    const files = event.currentTarget.files;
+
+    if (!files) {
+      return;
+    }
+
+    const finalUpload = files.item(0);
+
+    if (!finalUpload) {
+      return;
+    }
+
+    setSelectedFile(finalUpload);
+  };
+
   return (
     <>
       <h1>Think Graph : Your AI Research Search Engine</h1>
@@ -58,7 +85,7 @@ function QueryComponent() {
 
       {/* Prompt and file uploading div */}
       <div className="flex items-center gap-3">
-        <input type="file" />
+        <input type="file" onChange={handleFileUpload} />
 
         <textarea
           className="flex-1 resize-none h-10 border rounded-md p-2"
