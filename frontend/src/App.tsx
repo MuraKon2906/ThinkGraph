@@ -1,10 +1,10 @@
-import DisplayTest from "./DisplayTest";
+import QueryComponent from "./QueryComponent";
 import "./index.css";
 
 export function App() {
   return (
     <>
-      <DisplayTest />
+      <QueryComponent />
     </>
   );
 }
