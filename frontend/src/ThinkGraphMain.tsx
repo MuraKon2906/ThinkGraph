@@ -3,7 +3,7 @@ import { Form } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
 
-function QueryComponent() {
+function ThinkGraphMain() {
   const [prompt, setPrompt] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
@@ -106,4 +106,4 @@ function QueryComponent() {
   );
 }
 
-export default QueryComponent;
+export default ThinkGraphMain;

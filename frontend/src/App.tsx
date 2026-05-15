@@ -1,10 +1,10 @@
-import QueryComponent from "./QueryComponent";
+import ThinkGraphMain from "./ThinkGraphMain";
 import "./index.css";
 
 export function App() {
   return (
     <>
-      <QueryComponent />
+      <ThinkGraphMain />
     </>
   );
 }
