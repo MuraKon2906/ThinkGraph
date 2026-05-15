@@ -2,7 +2,11 @@ import type React from "react";
 import { useState } from "react";
 
 function QueryComponent() {
+  // Prompt which displays in the input box
   const [prompt, setPrompt] = useState("");
+  // Prompt sent to the backend
+  const [finalPrompt, setFinalPrompt] = useState("")
+
 
   const handlePromptBox = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -10,8 +14,13 @@ function QueryComponent() {
     setPrompt(event.currentTarget.value);
   };
 
+  const handleFinalPrompts = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key == "Enter") {
+      setFinalPrompt(prompt)
+    }
+  }
   const backend_data = {
-    "prompt": prompt,
+    "prompt": finalPrompt,
     "data": Date.now()
   }
 
@@ -24,11 +33,13 @@ function QueryComponent() {
         type="text"
         placeholder="Knowledge starts here"
         onChange={handlePromptBox}
+        onKeyDown={handleFinalPrompts}
+
         value={prompt}
       />
 
       <p>
-        You typed: {prompt}
+        You typed: {finalPrompt}
       </p>
     </>
   );
