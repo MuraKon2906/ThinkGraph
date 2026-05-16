@@ -74,63 +74,6 @@ The result is a system that helps users understand *why* concepts matter and *ho
 
 Instead of reading papers line-by-line and manually researching unfamiliar concepts, users get an interactive research graph that continuously expands understanding.
 
----
-
-# Tech Stack
-
-## Frontend
-- React
-- TailwindCSS
-
-## Backend
-- Django
-- Django REST Framework
-
-## AI / ML
-- LangChain
-- LLM-based reasoning pipelines
-- Context-aware retrieval systems
-
-## Database
-- PostgreSQL *(planned / optional)*
-
-## DevOps
-- Docker
-- Docker Compose
-
-## Infrastructure
-- Containerized services
-- Modular architecture
-- Scalable API-first design
-
-## APIs & Libraries
-- LangChain
-- REST APIs
-- Markdown rendering pipelines
-
----
-
-# Architecture / Workflow
-
-```text
-Research Paper / Report
-            │
-            ▼
-    AI Processing Pipeline
-            │
- ┌──────────┴──────────┐
- │                     │
- ▼                     ▼
-Content Analysis   Topic Extraction
- │                     │
- ▼                     ▼
-Markdown Engine   Knowledge Linking
- │                     │
- └──────────┬──────────┘
-            ▼
- Interactive Research Output
-```
-
 ### Pipeline Overview
 1. User uploads a research paper or report
 2. ThinkGraph extracts and analyzes content
@@ -189,15 +132,7 @@ feel free to open issues, discussions, or pull requests.
 
 The current release focuses on core research understanding and markdown generation workflows.
 
----
 
-# Author
-
-**Shaan Ali Farooqui**
-
-- AI Engineer
-- Full Stack Developer
-- Open Source Builder
 
 ---
 
