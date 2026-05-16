@@ -17,4 +17,5 @@ dependencies = [
     "langchain-community>=0.3.31",
     "langchain-google-genai>=2.0.10",
     "pypdf>=6.11.0",
+    "tavily-python>=0.7.24",
 ]
